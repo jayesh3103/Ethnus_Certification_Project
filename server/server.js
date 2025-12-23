@@ -1,4 +1,4 @@
-import './config/instrument.js'
+// import './config/instrument.js'
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
@@ -17,7 +17,7 @@ const app = express()
 
 // Connect to database
 connectDB()
-await connectCloudinary()
+connectCloudinary()
 
 // Middlewares
 app.use(cors())
@@ -39,6 +39,10 @@ const PORT = process.env.PORT || 5000
 
 Sentry.setupExpressErrorHandler(app);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-})
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  })
+}
+
+export default app
