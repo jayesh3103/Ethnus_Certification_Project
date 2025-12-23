@@ -224,6 +224,4 @@ Here is a walkthrough of the application features:
 
 ---
 
-**Built by [Jayesh Muley](https://github.com/jayesh3103)**
-
 **Last Updated**: December 23, 2025
