@@ -3,7 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
 import connectDB from './config/db.js'
-import * as Sentry from "@sentry/node";
+// import * as Sentry from "@sentry/node";
 import { clerkWebhooks } from './controllers/webhooks.js'
 import companyRoutes from './routes/companyRoutes.js'
 import connectCloudinary from './config/cloudinary.js'
@@ -37,7 +37,7 @@ app.use('/api/users', userRoutes)
 // Port
 const PORT = process.env.PORT || 5000
 
-Sentry.setupExpressErrorHandler(app);
+// Sentry.setupExpressErrorHandler(app);
 
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
